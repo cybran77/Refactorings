@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CSharpRefactorings</RootNamespace>
     <AssemblyName>CSharpRefactorings</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -40,6 +40,7 @@
     <Compile Include="AlphaNum\Refactored\AlphaNumericString.cs" />
     <Compile Include="FizzBuzz\Original\FizzBuzz.cs" />
     <Compile Include="FizzBuzz\Refactored\FizzBuzz.cs" />
+    <Compile Include="FizzBuzz\Training\FizzBuzz.cs" />
     <Compile Include="GildedRose\Original\GildedRose.cs" />
     <Compile Include="Mastermind\Original\Mastermind.cs" />
     <Compile Include="Parrot\Original\Parrot.cs" />
