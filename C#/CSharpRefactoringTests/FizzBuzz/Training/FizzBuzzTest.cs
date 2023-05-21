@@ -33,7 +33,7 @@ namespace CSharpRefactoringTests.FizzBuzz.Training
             var fizzBuzz = new CSharpRefactorings.FizzBuzz.Training.FizzBuzz();
 
             // act
-            string actual = fizzBuzz.PrintFizzBuzz();
+            string actual = fizzBuzz.PrintFizzBuzzRange(100);
 
             // assert
             Assert.AreEqual(expected, actual);

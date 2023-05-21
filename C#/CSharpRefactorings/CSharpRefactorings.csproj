@@ -40,7 +40,7 @@
     <Compile Include="AlphaNum\Refactored\AlphaNumericString.cs" />
     <Compile Include="FizzBuzz\Original\FizzBuzz.cs" />
     <Compile Include="FizzBuzz\Refactored\FizzBuzz.cs" />
-    <Compile Include="FizzBuzz\Training\FizzBuzz.cs" />
+    <Compile Include="FizzBuzz\Training\*.cs" />
     <Compile Include="GildedRose\Original\GildedRose.cs" />
     <Compile Include="Mastermind\Original\Mastermind.cs" />
     <Compile Include="Parrot\Original\Parrot.cs" />

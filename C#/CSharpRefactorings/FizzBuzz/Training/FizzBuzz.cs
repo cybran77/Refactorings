@@ -4,73 +4,55 @@ namespace CSharpRefactorings.FizzBuzz.Training
 {
     public class FizzBuzz
     {
-        public string PrintFizzBuzz()
+        private readonly Fizz _fizz;
+        private readonly Buzz _buzz;
+
+        public FizzBuzz()
         {
-            var resultFizzBuzz = string.Empty;
-            resultFizzBuzz = GetNumbers(resultFizzBuzz);
-            return resultFizzBuzz;
+            _fizz = new Fizz();
+            _buzz = new Buzz();
         }
 
         public string PrintFizzBuzz(int number)
         {
-            var result = GetFizzBuzzResult(number);
-
-            if (string.IsNullOrEmpty(result))
-                result = GetFizzResult(number);
-            if (string.IsNullOrEmpty(result))
-                result = GetBuzzResult(number);
-
-            return string.IsNullOrEmpty(result) ? number.ToString() : result;
+            return DoFizzBuzz(number);
         }
 
-        private string GetFizzBuzzResult(int number)
+        public string PrintFizzBuzzRange(int count)
         {
-            string result = null;
-            if (IsFizz(number) && IsBuzz(number)) result = "FizzBuzz";
-            return result;
+            return Range(count);
         }
 
-        private string GetBuzzResult(int number)
+        private string Range(int count)
         {
-            string result = null;
-            if (IsBuzz(number)) result = "Buzz";
-            return result;
-        }
+            var results = new string[count];
 
-        private string GetFizzResult(int number)
-        {
-            string result = null;
-            if (IsFizz(number)) result = "Fizz";
-            return result;
-        }
-
-        private string GetNumbers(string resultFizzBuzz)
-        {
-            for (var i = 1; i <= 100; i++)
+            for (var i = 1; i <= count; i++)
             {
-                var printNumber = string.Empty;
-                if (IsFizz(i)) printNumber += "Fizz";
-                if (IsBuzz(i)) printNumber += "Buzz";
-                if (IsNumber(printNumber))
-                    printNumber = (i).ToString();
-                resultFizzBuzz += " " + printNumber;
+                results[i - 1] = DoFizzBuzz(i);
             }
-            return resultFizzBuzz.Trim();
+
+            return string.Join(" ", results);
         }
 
-        private bool IsNumber(string printNumber)
+        private string DoFizzBuzz(int number)
         {
-            return String.IsNullOrEmpty(printNumber);
+            var printNumber = string.Empty;
+
+            printNumber += _fizz.Handle(number);
+            printNumber += _buzz.Handle(number);
+            printNumber = IsNumber(number, printNumber);
+
+            return printNumber;
         }
 
-        private bool IsBuzz(int i)
+        private string IsNumber(int number, string printNumber)
         {
-            return i % 5 == 0;
-        }
-
-        private bool IsFizz(int i)
-        {
-            return i % 3 == 0;
+            if (String.IsNullOrEmpty(printNumber))
+            {
+                printNumber = number.ToString();
+            }
+            return printNumber;
         }
     }
 }
